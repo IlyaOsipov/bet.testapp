@@ -1,0 +1,32 @@
+<form>
+  <div class="row">
+    <div class="col-md-4">
+      <label>Login</label>
+    </div>
+    <div class="col-md-8">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <input matInput placeholder="Login" [formControl]="field.login">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label>Password</label>
+    </div>
+    <div class="col-md-8">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <input type="password" matInput placeholder="Password" [formControl]="field.password">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <button
+      type="submit"
+      attr.data-humanoids="dlg_submit_button"
+      class="btn btn-primary dlg-button"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </div>
+</form>

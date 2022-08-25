@@ -1,0 +1,45 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~ngx-toastr/toastr.css';
+body {
+  font-size: initial!important;
+}
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  font-size: initial!important;
+  border-color: #1861ac;
+}
+
+.md-overlay-container {
+  position: fixed;
+  z-index: 1000;
+}
+
+.md-overlay-container, .md-global-overlay-wrapper {
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.md-global-overlay-wrapper {
+  display: flex;
+  position: absolute;
+  z-index: 1000;
+}
+
+ngb-rating {
+  font-size: 20px;
+  color:gold;
+  background: white;
+}
