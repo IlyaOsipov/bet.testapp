@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BET.TestSolution/BET.Infrastructure/obj/Debug
+/BET.TestSolution/BET.Repositories/obj/Debug
+/BET.TestSolution/BET.Repositories.Tests/obj/Debug
+/BET.TestSolution/BET.Services/obj/Debug
+/BET.TestSolution/BET.Web.Api/obj/Debug/netcoreapp3.1
+/BET.TestSolution/BET.Web.Api/obj
+/BET.TestSolution/packages
+/BET.TestSolution/.vs/BET.TestSolution/DesignTimeBuild
