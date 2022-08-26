@@ -1,6 +1,6 @@
 <div class="modal-wrapper">
   <div mat-dialog-title>
-    Product
+    Add to Cart
     <button class="btn btn-nocolor button-close" mat-dialog-close>
       <span class="glyphicon glyphicon-remove"></span>
     </button>
@@ -8,15 +8,13 @@
 
   <div mat-dialog-content>
     <p></p>
-    <form>
+    <form class="example-form">
     <div class="row">
       <div class="col-md-4">
         <label>Name</label>
       </div>
       <div class="col-md-8">
-        <mat-form-field class="example-full-width" appearance="fill">
           <label>{{dialogData.product.name}}</label>
-        </mat-form-field>
       </div>
     </div>
       <div class="row">
@@ -24,9 +22,7 @@
           <label>Image Url</label>
         </div>
         <div class="col-md-8">
-          <mat-form-field class="example-full-width" appearance="fill">
             <label>{{dialogData.product.image}}</label>
-          </mat-form-field>
         </div>
       </div>
       <div class="row">
@@ -34,9 +30,7 @@
           <label>Price</label>
         </div>
         <div class="col-md-8">
-          <mat-form-field class="example-full-width" appearance="fill">
-            <label>{{dialogData.product.price}}</label>
-          </mat-form-field>
+            <label>{{dialogData.product.price | currency}}</label>
         </div>
       </div>
       <div class="row">
@@ -44,8 +38,16 @@
           <label>Quantity</label>
         </div>
         <div class="col-md-8">
+           <label>{{dialogData.product.quantity}}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label>Amount</label>
+        </div>
+        <div class="col-md-8">
           <mat-form-field class="example-full-width" appearance="fill">
-            <label>{{dialogData.product.quantity}}</label>
+            <input matInput ngModel type="number" min="1" [max]="dialogData.product.quantity" placeholder="Set Amount" [formControl]="field.quantity">
           </mat-form-field>
         </div>
       </div>
@@ -57,6 +59,7 @@
 
   <mat-dialog-actions class="confirmation_dialog_footer">
     <button
+      [disabled]="!(form.controls['quantity'].value>=1 && form.controls['quantity'].value<=dialogData.product.quantity)"
       type="submit"
       class="btn btn-primary dlg-button"
       (click)="confirm()"    >

@@ -11,11 +11,8 @@ export class CartStorage extends OnDestroyMixin{
     this.getCurrentCart();
   }
 
-  public get cart$() {
-    return this.cartSubject.asObservable();
-  }
-
   onCartUpdate(data: Cart) {
+    localStorage.setItem('cartData',JSON.stringify(data));
     this.cartSubject.next(data);
   }
 

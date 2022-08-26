@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import { untilComponentDestroyed } from '@w11k/ngx-componentdestroyed';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Subscription} from 'rxjs';
 import {SortColumnDirection} from '../shared/tableSettings/sortDirection';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ToastrService} from 'ngx-toastr';
@@ -19,12 +19,14 @@ import {Product} from "../shared/models/product";
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './cart.component.html'
 })
-export class CartComponent extends CartStorage implements OnInit {
+export class CartComponent extends CartStorage implements OnInit, OnDestroy {
   public items: CartItem[];
   public sort: SortColumnDirection;
   notification: Notification;
-  displayedColumns: string[] = ['id', 'name', 'image', 'price', 'amount', 'totals'];
+  private cartChangedEvent: Subscription;
+  displayedColumns: string[] = ['name', 'image', 'price', 'quantity', 'totals', 'action'];
   dataSource$: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
+  cart: Cart = undefined;
 
   constructor (
     userStateService: UserStateService,
@@ -38,20 +40,32 @@ export class CartComponent extends CartStorage implements OnInit {
     super(userStateService);
   }
 
+  ngOnDestroy() {
+    if (this.cartChangedEvent) {
+      this.cartChangedEvent.unsubscribe();
+    }
+  }
+
   ngOnInit() {
     this.notification = new Notification(this.notificationService);
+    this.cartChangedEvent = this.cartSubject.subscribe(c=>{
+      if(c){
+        this.cart = c;
+      }
+    });
     this.displayedColumns = this.getDefaultColumns();
     this.fillTable();
   }
 
   getDefaultColumns(): string[] {
-   return ['id', 'name', 'image', 'price', 'amount', 'totals'];
+   return ['name', 'image', 'price', 'quantity', 'totals', 'action'];
   }
 
   onDeleteClick(el:Product) {}
 
   fillTable() {
-    this.cart$.pipe(untilComponentDestroyed(this)).subscribe((res: Cart) => {
+    const productsData$ = this.cartSubject;
+    productsData$.pipe(untilComponentDestroyed(this)).subscribe((res: Cart) => {
       this.items = res.items;
       this.dataSource$.next(this.items);
       this.cdr.detectChanges();

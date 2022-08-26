@@ -10,3 +10,9 @@
 /BET.TestSolution/BET.Web.Api/obj
 /BET.TestSolution/packages
 /BET.TestSolution/.vs/BET.TestSolution/DesignTimeBuild
+/BET.TestSolution/.vs/BET.TestSolution/config/applicationhost.config
+/BET.TestSolution/BET.Infrastructure/bin/Debug
+/BET.TestSolution/BET.Repositories/bin/Debug
+/BET.TestSolution/BET.Services/bin/Debug
+/BET.TestSolution/BET.Web.Api/bin/Debug/netcoreapp3.1/runtimes
+/BET.TestSolution/BET.Web.Api/bin/Debug/netcoreapp3.1

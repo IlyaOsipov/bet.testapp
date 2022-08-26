@@ -46,6 +46,17 @@ import {CartService} from "../core/services/cart/cart.service";
     NgLetDirectiveModule,
     FormsModule
   ],
+  exports: [
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatTableModule,
+    MatCommonModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatToolbarModule],
   providers: [CartService, ProductService]
 })
-export class ProductModule { }
+export class CartModule { }

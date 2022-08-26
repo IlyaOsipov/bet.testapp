@@ -29,7 +29,7 @@ export class ProductComponent extends CartStorage implements OnInit, OnDestroy {
   public loggedUser: LoggedUser;
   private cartChangedEvent: Subscription;
   notification: Notification;
-  displayedColumns: string[] = ['name', 'image', 'price', 'quantity'];
+  displayedColumns: string[] = ['name', 'image', 'price', 'quantity', 'action'];
   dataSource$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   dialogRef: MatDialogRef<AddToCartDialogComponent>;
   cart: Cart = undefined;
@@ -64,7 +64,7 @@ export class ProductComponent extends CartStorage implements OnInit, OnDestroy {
   }
 
   getDefaultColumns(): string[] {
-   return ['name', 'image', 'price', 'quantity'];
+   return ['name', 'image', 'price', 'quantity', 'action'];
   }
 
   fillTable() {

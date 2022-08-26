@@ -17,6 +17,7 @@ import {LogoutModule} from './logout/logout.module';
 import {UserStateService} from './core/services/user/user-state.service';
 import {NgxPubSubModule} from '@pscoped/ngx-pub-sub';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CartModule} from "./cart/сart.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     CommonModule,
     ProductModule,
+    CartModule,
     LoginModule,
     LogoutModule,
     BrowserAnimationsModule,

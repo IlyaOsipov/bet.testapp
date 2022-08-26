@@ -46,6 +46,17 @@ import {AddToCartDialogComponent} from "./action-dlg/add-to-cart-item-dialog.com
     NgLetDirectiveModule,
     FormsModule
   ],
+  exports: [
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatTableModule,
+    MatCommonModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatToolbarModule],
   providers: [CartService, ProductService]
 })
 export class ProductModule { }

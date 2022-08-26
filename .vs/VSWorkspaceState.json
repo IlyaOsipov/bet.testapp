@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BET.TestSolution",
+    "\\BET.TestSolution\\BET.Web.Api"
   ],
-  "SelectedNode": "\\BET.TestSolution.sln",
+  "SelectedNode": "\\BET.TestSolution\\BET.TestSolution.sln",
   "PreviewInSolutionExplorer": false
 }

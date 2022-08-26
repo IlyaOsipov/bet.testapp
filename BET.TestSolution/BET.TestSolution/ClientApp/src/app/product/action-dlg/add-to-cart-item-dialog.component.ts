@@ -35,7 +35,7 @@ export class AddToCartDialogComponent extends OnDestroyMixin implements OnInit {
     this.сartItem.id = this.dialogData.product.id == null ? 0 : this.dialogData.product.id;
 
     this.form = this.fb.group({
-      amount: [1, [Validators.required, Validators.min(1), Validators.max( this.dialogData.product.quantity)]],
+      quantity: [1, [Validators.required, Validators.min(1), Validators.max( this.dialogData.product.quantity)]],
     });
     this.fillForm(this.сartItem);
   }

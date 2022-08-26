@@ -32,7 +32,7 @@
 
     <!-- Quantity Column -->
     <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by quantity">
         Quantity
       </th>
       <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
@@ -40,15 +40,15 @@
 
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>
-      Edit
+      Add to Cart
     </th>
     <td mat-cell *matCellDef="let element">
       <button
         class="icon-button__icon_success icon-button__icon_btn-link icon-button__icon_no-padding"
         (click)="onAddToCartClick(element)"
-        title="Edit product"
+        title="Add to Cart"
       >
-        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="glyphicon glyphicon-plus"></span>
       </button>
     </td>
   </ng-container>
